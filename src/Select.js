@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Select = ({ setRows, setCols, createMatrix, setFill }) => {
+const Select = ({ setRows, setCols, createMatrix }) => {
   const [selectValue, setSelectValue] = useState("3");
 
   const updateStates = (e) => {
@@ -17,7 +17,7 @@ const Select = ({ setRows, setCols, createMatrix, setFill }) => {
         className="custom-select"
         name="custom-select"
         id="custom-select"
-        defaultValue={selectValue}
+        value={selectValue}
         onChange={updateStates}
       >
         <option value="2">2 &times; 2</option>
@@ -27,7 +27,6 @@ const Select = ({ setRows, setCols, createMatrix, setFill }) => {
       </select>
       <button
         onClick={() => {
-          setFill(""); /* *********!!!!!!NOT WORKING!!!!!!********* */
           createMatrix("");
         }}
       >

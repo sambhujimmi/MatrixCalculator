@@ -33,6 +33,7 @@ button {
 
 /* Dropdown */
 .custom-select {
+  font-size: medium;
   padding: 10px 25px;
   border-radius: 5px;
 }

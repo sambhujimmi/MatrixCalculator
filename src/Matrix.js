@@ -3,9 +3,11 @@ const Matrix = ({ name, values, updateValues, deleteMatrix }) => {
     <div className="matrix" id={name}>
       <div className="matrix-title">
         {name}
-        <button className="delete" id={name} onClick={(e) => deleteMatrix(e)}>
-          &times;
-        </button>
+        {deleteMatrix && (
+          <button className="delete" id={name} onClick={(e) => deleteMatrix(e)}>
+            &times;
+          </button>
+        )}
       </div>
       <div className="values">
         {values.map((elem, index) => (
@@ -21,7 +23,11 @@ const Matrix = ({ name, values, updateValues, deleteMatrix }) => {
                   r={index}
                   c={index1}
                   type="number"
-                  onChange={(e) => updateValues(e)}
+                  onChange={(e) => {
+                    if (updateValues) {
+                      updateValues(e);
+                    }
+                  }}
                 />
               );
             })}

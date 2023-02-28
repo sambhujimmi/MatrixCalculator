@@ -11,16 +11,22 @@ const AddMatrix = ({ rows, setRows, cols, setCols, matrices, setMatrices }) => {
     setFill(e.target.value);
   };
 
-  const createMatrix = () => {
-    console.log(fill);
+  const createMatrix = (f) => {
     if (rows === "" || cols === "" || rows < 1 || cols < 1) {
       return alert("No of rows or columns must be 1 or more");
     }
+
     if (matrices.length > 25) {
       return alert("You are a FAILURE");
     }
+
     let values = Array.from(Array(rows), () => new Array(cols).fill(""));
-    if (fill === "i") {
+
+    if (f === "") {
+      values.forEach((elem) =>
+        elem.forEach((_, index, array) => (array[index] = ""))
+      );
+    } else if (fill === "i") {
       values.forEach((elem, index) =>
         elem.forEach(
           (_, index1, array) => (array[index1] = index === index1 ? 1 : 0)

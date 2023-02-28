@@ -63,7 +63,7 @@ function App() {
         matrices={matrices}
         setMatrices={setMatrices}
       />
-      <MatrixCalc />
+      <MatrixCalc matrices={matrices} />
     </div>
   );
 }
